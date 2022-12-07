@@ -16,11 +16,11 @@ public class FileUploadService {
         String fileName = StringUtils.cleanPath(Objects.requireNonNull(multipartFile.getOriginalFilename()));
         long size = multipartFile.getSize();
 
-        FileUploadUtil.saveFile(fileName, multipartFile);
+        String fileCode = FileUploadUtil.saveFile(fileName, multipartFile);
         FileUploadResponse response = new FileUploadResponse();
         response.setFileName(fileName);
         response.setSize(size);
-        response.setDownloadUri("/downloadFile");
+        response.setDownloadUri("/downloadFile/" + fileCode);
 
         return response;
     }
