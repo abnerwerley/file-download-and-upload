@@ -13,4 +13,10 @@ public class CsvData {
     private List<String> headers;
     private List<List<String>> dataList;
     private boolean showHeader;
+    private String parseDateFrom;
+    private String parseDateTo;
+
+    public boolean c() {
+        return showHeader;
+    }
 }

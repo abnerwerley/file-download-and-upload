@@ -21,8 +21,8 @@ public class AttachmentController {
 
     @PostMapping("/generateCsv")
     @ResponseStatus(HttpStatus.CREATED)
-    public Attachment generateCsvFile(@RequestBody CsvData csvData) {
-        return service.generateCsvFile(csvData);
+    public void generateCsvFile(@RequestBody CsvData csvData) {
+        service.generateCsvFile(csvData);
     }
 }
 

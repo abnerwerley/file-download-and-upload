@@ -19,11 +19,18 @@ public class AttachmentService {
         this.repository = repository;
     }
 
-    public Attachment generateCsvFile(CsvData csvData) {
-        Attachment attachment = new Attachment("newFile", CsvLibrary.create(
-                csvData.getHeaders(),
-                csvData.getDataList(),
-                false));
-        return repository.save(attachment);
+    public void generateCsvFile(CsvData csvData) {
+        Attachment attachment = new Attachment((csvData.getParseDateFrom() == null && csvData.getParseDateTo() == null) ?
+                CsvLibrary.create(
+                        csvData.getHeaders(),
+                        csvData.getDataList(),
+                        csvData.isShowHeader()) :
+                CsvLibrary.create(
+                        csvData.getHeaders(),
+                        csvData.getDataList(),
+                        csvData.isShowHeader(),
+                        csvData.getParseDateFrom(),
+                        csvData.getParseDateTo()));
+        repository.save(attachment);
     }
 }
