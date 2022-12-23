@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("")
 public class AttachmentController {
@@ -19,8 +21,8 @@ public class AttachmentController {
 
     @PostMapping("/generateCsv")
     @ResponseStatus(HttpStatus.CREATED)
-    public Attachment generateCsvFile(@RequestBody CsvData data) {
-        return service.generateCsvFile(data);
+    public Attachment generateCsvFile(@RequestBody CsvData csvData) {
+        return service.generateCsvFile(csvData);
     }
 }
 

@@ -11,6 +11,6 @@ import java.util.List;
 @Builder
 public class CsvData {
     private List<String> headers;
-    private List<String> dataList;
+    private List<List<String>> dataList;
     private boolean showHeader;
 }
